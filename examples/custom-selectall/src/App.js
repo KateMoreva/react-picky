@@ -1,7 +1,6 @@
 import React from 'react';
-import { Picky } from 'react-picky';
-import 'react-picky/dist/picky.css';
 import { options } from './makeData';
+import { Picky } from './Picky';
 
 function App() {
   const [multiValue, setMultiValue] = React.useState([]);
