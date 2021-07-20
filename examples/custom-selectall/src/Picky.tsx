@@ -125,6 +125,10 @@ export type PickyProps = {
    */
   filterDebounce?: number;
 
+  clearDebounce?: number;
+
+  resetDebounce?: number;
+
   /**
    * The max height of the dropdown, height is in px.
    *
@@ -339,6 +343,8 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
     this.toggleDropDown = this.toggleDropDown.bind(this);
     this.toggleSelectAll = this.toggleSelectAll.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);
+    this.onFilterCLear = this.onFilterCLear.bind(this);
+    this.onResetFilterAndSelected = this.onResetFilterAndSelected.bind(this);
     this.selectValue = this.selectValue.bind(this);
     this.allSelected = this.allSelected.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
@@ -629,6 +635,21 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
     );
   }
 
+  onFilterCLear(term: string) {
+    return this.setState({
+      filtered: false,
+      filteredOptions: [],
+    });
+  }
+
+  onResetFilterAndSelected(term: string) {
+    this.props.onChange([]);
+    return this.setState({
+      filtered: false,
+      filteredOptions: [],
+    });
+  }
+
   /**
    *
    * Called by a click event listener. Used to determine any clicks that occur outside of the component.
@@ -704,6 +725,20 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
     return (amount || 0) > 0
       ? debounce(this.onFilterChange, amount)
       : this.onFilterChange;
+  }
+  get clearDebounce() {
+    const { filterDebounce } = this.props;
+    const amount = filterDebounce || 0;
+    return (amount || 0) > 0
+      ? debounce(this.onFilterCLear, amount)
+      : this.onFilterCLear;
+  }
+  get resetDebounce() {
+    const { filterDebounce } = this.props;
+    const amount = filterDebounce || 0;
+    return (amount || 0) > 0
+      ? debounce(this.onResetFilterAndSelected, amount)
+      : this.onResetFilterAndSelected;
   }
 
   get showSelectAll(): boolean {
@@ -788,6 +823,8 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
               tabIndex={tabIndex}
               placeholder={filterPlaceholder}
               onFilterChange={this.filterDebounce}
+              onFilterClear={this.clearDebounce}
+              onResetFilterAndSelected={this.resetDebounce}
             />
           )}
           {renderSelectAll ? (

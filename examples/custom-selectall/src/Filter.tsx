@@ -1,6 +1,8 @@
 import * as React from 'react';
 export type FilterProps = {
   onFilterChange(term: string): void;
+  onFilterClear(term: string): void;
+  onResetFilterAndSelected(term: string): void;
   tabIndex: number | undefined;
   placeholder?: string;
 } & React.RefAttributes<HTMLInputElement>;
@@ -15,35 +17,52 @@ class Filter extends React.PureComponent<FilterProps> {
 
   EMPTY = '';
 
-  clearInput = () => {
-    console.log(this);
-    if (this.ref.current != null) {
-      this.ref.current.value = '';
-    }
-    return this.setState({
-      filtered: false,
-      filteredOptions: [],
-    });
-  };
-
   render() {
-    const { placeholder, tabIndex, onFilterChange } = this.props;
+    const {
+      placeholder,
+      tabIndex,
+      onFilterChange,
+      onFilterClear,
+      onResetFilterAndSelected,
+    } = this.props;
     return (
-      <div className="picky__filter">
-        <input
-          ref={this.ref}
-          type="text"
-          className="picky__filter__input"
-          data-testid="picky__filter__input"
-          placeholder={placeholder}
-          tabIndex={tabIndex}
-          aria-label="filter options"
-          onChange={e => onFilterChange(e.target.value)}
-        />
-        <button type="button" className="clearSearch" onClick={this.clearInput}>
-          X
-        </button>
-        <span>reset all</span>
+      <div className="picky__header">
+        <div className="picky__filter">
+          <input
+            ref={this.ref}
+            type="text"
+            className="picky__filter__input"
+            data-testid="picky__filter__input"
+            placeholder={placeholder}
+            tabIndex={tabIndex}
+            aria-label="filter options"
+            onChange={e => {
+              if (e.target.value !== this.EMPTY) {
+                onFilterChange(e.target.value);
+              }
+            }}
+          />
+          <button
+            type="button"
+            className="picky__clear"
+            onClick={e => {
+              onFilterClear(' ');
+              if (this.ref.current !== null) {
+                this.ref.current.value = this.EMPTY;
+              }
+            }}
+          >
+            X
+          </button>
+        </div>
+        <span
+          className="picky__reset"
+          onClick={e => {
+            onResetFilterAndSelected('');
+          }}
+        >
+          reset all
+        </span>
       </div>
     );
   }

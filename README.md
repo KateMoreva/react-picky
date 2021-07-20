@@ -1,5 +1,7 @@
 # No longer actively maintained
-I no longer have the time nor the energy to maintain Picky. Please fork and improve. For alternatives I suggest: 
+
+I no longer have the time nor the energy to maintain Picky. Please fork and improve. For alternatives I suggest:
+
 - [react-select](https://github.com/JedWatson/react-select)
 - [downshift](https://github.com/paypal/downshif)
 
@@ -79,7 +81,7 @@ import 'react-picky/dist/picky.css'; // Include CSS
   multiple={true}
   includeSelectAll={true}
   includeFilter={true}
-  onChange={values => console.log(values)}
+  onChange={values => g(values)}
   dropdownHeight={600}
 />;
 ```
