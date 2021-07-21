@@ -1,6 +1,6 @@
-# No longer actively maintained
+# Not actively maintained
 
-I no longer have the time nor the energy to maintain Picky. Please fork and improve. For alternatives I suggest:
+For alternatives I suggest:
 
 - [react-select](https://github.com/JedWatson/react-select)
 - [downshift](https://github.com/paypal/downshif)
@@ -50,6 +50,16 @@ Picky provides a medium amount of flexibility, you can custom render: Options, L
 
 # Installation
 
+Origin:
+
+```
+  npm install --save react-picky
+  # or
+  yarn add react-picky
+```
+
+New picky with clear and reset
+
 ```
   npm install --save react-picky
   # or
@@ -60,18 +70,18 @@ Picky provides a medium amount of flexibility, you can custom render: Options, L
 
 ## Single Select
 
-![Single select](https://raw.githubusercontent.com/aidurber/react-picky/master/assets/readme-single-select.png)
+![Single select](https://github.com/KateMoreva/react-picky-with-clear/blob/filter_with_clear_buttons/assets/readme-single-select.png)
 
 ## Multi Select
 
-![Multi select](https://raw.githubusercontent.com/aidurber/react-picky/master/assets/readme-multi-select.jpg)
+![Multi select](https://github.com/KateMoreva/react-picky-with-clear/blob/filter_with_clear_buttons/assets/readme-multi-select.jpg)
 
 # Usage
 
 ## Basic example
 
 ```javascript
-import { Picky } from 'react-picky';
+import { Picky } from 'react-picky-with-clear';
 import 'react-picky/dist/picky.css'; // Include CSS
 
 <Picky
@@ -88,7 +98,6 @@ import 'react-picky/dist/picky.css'; // Include CSS
 
 # Examples
 
-- [Basic](./examples/basic)
 - [Custom Render: Select All](./examples/custom-selectall)
 - [Custom Render: List](./examples/custom-list)
 - [Custom Render: Option](./examples/custom-option)
@@ -335,14 +344,6 @@ const Select = styled(Picky)`
 
 # Migrations
 
-## v4 to v5
+## v6
 
-> Picky is no longer a default export
-
-**V4**
-
-import Picky from 'react-picky'
-
-**V5**
-
-import { Picky } from 'react-picky'
+import { Picky } from 'react-picky-with-clear'

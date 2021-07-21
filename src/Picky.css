@@ -109,16 +109,8 @@
   height: 16px;
   width: 16px;
   overflow: hidden;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-color: transparent;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  border: 1px solid #ccc;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  -webkit-transition-property: background-color, border;
-  transition-property: background-color, border;
   margin-right: 8px;
   margin-top: 3px;
   float: right;
