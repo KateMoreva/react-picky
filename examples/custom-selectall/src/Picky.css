@@ -155,6 +155,7 @@
   float: right;
   display: flex;
   margin-right: 5px;
+  cursor: pointer;
 }
 .picky_header {
   display: flex;
