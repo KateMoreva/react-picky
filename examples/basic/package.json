@@ -10,7 +10,7 @@
     "files": "^2.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-picky-with-clear": "latest",
+    "react-picky-with-clear": "^6.0.5",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {

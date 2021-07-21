@@ -14,7 +14,7 @@ function App() {
           options={options}
           labelKey="label"
           valueKey="value"
-          multiple={false}
+          multiple={true}
           includeFilter
           includeSelectAll
           value={multiValue}
