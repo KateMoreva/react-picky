@@ -81,7 +81,7 @@ import 'react-picky/dist/picky.css'; // Include CSS
   multiple={true}
   includeSelectAll={true}
   includeFilter={true}
-  onChange={values => g(values)}
+  onChange={values => console.log(values)}
   dropdownHeight={600}
 />;
 ```
