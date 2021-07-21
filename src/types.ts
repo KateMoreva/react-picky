@@ -120,6 +120,26 @@ export interface RenderSelectAllProps {
   disabled?: boolean;
 }
 
+export interface RenderFilterPlaceholderProps {
+  /**
+   * True if supplied to Picky component
+   *
+   * @type {boolean}
+   * @memberof RenderSelectAllProps
+   */
+  multiple: boolean;
+
+  /**
+   * Option to render
+   *
+   * @type {*}
+   * @memberof RenderProps
+   */
+  item: any;
+
+  disabled?: boolean;
+}
+
 /**
  * Properties returned from renderList
  *
@@ -129,6 +149,7 @@ export interface RenderSelectAllProps {
 export interface RenderListProps {
   disabled?: boolean;
   tabIndex: number | undefined;
+
   /**
    * Array of options to render
    *
