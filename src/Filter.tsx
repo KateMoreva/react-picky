@@ -37,9 +37,7 @@ class Filter extends React.PureComponent<FilterProps> {
             tabIndex={tabIndex}
             aria-label="filter options"
             onChange={e => {
-              if (e.target.value !== this.EMPTY) {
-                onFilterChange(e.target.value);
-              }
+              onFilterChange(e.target.value);
             }}
           />
           <button
@@ -61,11 +59,32 @@ class Filter extends React.PureComponent<FilterProps> {
             onResetFilterAndSelected();
           }}
         >
-          reset all
+          reset filters
         </span>
       </div>
     );
   }
+
+  //   (
+  //     { placeholder, tabIndex, onFilterChange },
+  //     ref: React.Ref<HTMLInputElement>
+  //   ) => {
+  //     return (
+  //       <div className="picky__filter">
+  //         <input
+  //           ref={ref}
+  //           type="text"
+  //           className="picky__filter__input"
+  //           data-testid="picky__filter__input"
+  //           placeholder={placeholder}
+  //           tabIndex={tabIndex}
+  //           aria-label="filter options"
+  //           onChange={e => onFilterChange(e.target.value)}
+  //         />
+  //       </div>
+  //     );
+  //   }
+  // )
 }
 
 export { Filter };

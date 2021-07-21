@@ -636,6 +636,7 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
   }
 
   onFilterCLear() {
+    this.props.onChange([]);
     return this.setState({
       filtered: false,
       filteredOptions: [],
@@ -647,6 +648,7 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
     return this.setState({
       filtered: false,
       filteredOptions: [],
+      selectedValue: [],
     });
   }
 
