@@ -70,11 +70,11 @@ New picky with clear and reset
 
 ## Single Select
 
-![Single select](https://github.com/KateMoreva/react-picky-with-clear/blob/filter_with_clear_buttons/assets/readme-single-select.png)
+![Single select](https://github.com/KateMoreva/react-picky-with-clear/blob/picky_with_clear_and_reset/assets/readme-single-select.png)
 
 ## Multi Select
 
-![Multi select](https://github.com/KateMoreva/react-picky-with-clear/blob/filter_with_clear_buttons/assets/readme-multi-select.jpg)
+![Multi select](https://github.com/KateMoreva/react-picky-with-clear/blob/picky_with_clear_and_reset/assets/readme-multi-select.jpg)
 
 # Usage
 
