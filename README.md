@@ -1,10 +1,3 @@
-# Not actively maintained
-
-For alternatives I suggest:
-
-- [react-select](https://github.com/JedWatson/react-select)
-- [downshift](https://github.com/paypal/downshif)
-
 # Picky ☜
 
 Yet another React select list.
@@ -14,6 +7,13 @@ Yet another React select list.
 [![license](https://img.shields.io/github/license/aidurber/react-picky.svg)]()
 [![npm version](https://badge.fury.io/js/react-picky.svg)](https://badge.fury.io/js/react-picky)
 [![gzip size](https://badgen.net/bundlephobia/minzip/react-picky)]()
+
+## Note: Not actively maintained
+
+For alternatives, I suggest:
+
+- [react-select](https://github.com/JedWatson/react-select)
+- [downshift](https://github.com/paypal/downshif)
 
 ## Motivation
 
