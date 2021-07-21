@@ -1,6 +1,6 @@
 import React from 'react';
 import { options } from './makeData';
-import { Picky } from 'react-picky';
+import { Picky } from 'react-picky-with-clear';
 import 'react-picky/dist/picky.css';
 
 function App() {
