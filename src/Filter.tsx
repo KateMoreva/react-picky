@@ -56,6 +56,9 @@ class Filter extends React.PureComponent<FilterProps> {
         <span
           className="picky__reset"
           onClick={() => {
+            if (this.ref.current !== null) {
+              this.ref.current.value = this.EMPTY;
+            }
             onResetFilterAndSelected();
           }}
         >
