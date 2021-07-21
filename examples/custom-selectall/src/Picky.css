@@ -170,3 +170,13 @@
   border: transparent;
   cursor: pointer;
 }
+.picky__dropdown .option input[type='checkbox']:checked {
+  border-color: transparent;
+  background-color: #3d5a94;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='14' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M12 1L5 7.5 2 5l-1 .5L5 10l8-8.5z'/%3E%3C/svg%3E");
+}
+.picky__dropdown .option input[type='checkbox']:indeterminate {
+  border-color: transparent;
+  background-color: #3d5a94;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M3 8h10v1H3z'/%3E%3C/svg%3E");
+}
