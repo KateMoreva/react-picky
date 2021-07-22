@@ -27,6 +27,7 @@ function App() {
           options={options}
           labelKey="label"
           valueKey="value"
+          multiple={true}
           includeFilter
           value={value}
           onChange={setValue}

@@ -4,7 +4,6 @@ import { includes } from './lib/includes';
 import {
   isDataObject,
   hasItem,
-  keyExtractor,
   hasItemIndex,
   sortCollection,
   arraysEqual,
@@ -547,7 +546,7 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
     }
     return items.map((item, index) => {
       // Create a key based on the options value
-      const key = keyExtractor(item, valueKey, labelKey);
+      const key = Math.floor(Math.random() * index * 100000 + Math.random());
 
       const isSelected = this.isItemSelected(item);
       // If render prop supplied for items call that.
