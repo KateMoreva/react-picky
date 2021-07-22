@@ -67,27 +67,6 @@ class Filter extends React.PureComponent<FilterProps> {
       </div>
     );
   }
-
-  //   (
-  //     { placeholder, tabIndex, onFilterChange },
-  //     ref: React.Ref<HTMLInputElement>
-  //   ) => {
-  //     return (
-  //       <div className="picky__filter">
-  //         <input
-  //           ref={ref}
-  //           type="text"
-  //           className="picky__filter__input"
-  //           data-testid="picky__filter__input"
-  //           placeholder={placeholder}
-  //           tabIndex={tabIndex}
-  //           aria-label="filter options"
-  //           onChange={e => onFilterChange(e.target.value)}
-  //         />
-  //       </div>
-  //     );
-  //   }
-  // )
 }
 
 export { Filter };
