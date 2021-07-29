@@ -545,9 +545,8 @@ class Picky extends React.PureComponent<PickyProps, PickyState> {
       });
     }
     return items.map((item, index) => {
-      // Create a key based on the options value
-      const key = Math.floor(Math.random() * index * 100000 + Math.random());
-
+      // Create a key based on the index
+      const key = index;
       const isSelected = this.isItemSelected(item);
       // If render prop supplied for items call that.
       if (typeof render === 'function') {

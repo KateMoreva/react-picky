@@ -467,6 +467,74 @@ describe('Picky', () => {
       expect(getByTestId('picky__filter__input')).toBeTruthy();
     });
 
+    it('should select only filtered when selectAllMode is "filtered"', () => {
+      // We're going to be listening for changes so we're going to need a mock function.
+      const mockOnChange = jest.fn();
+      // Specify the options that picky is going to use
+      const options = ['Boo', 'Moon', 'Cat', 'Dog'];
+
+      // Mount Picky with Enzyme
+      const { getByTestId } = render(
+        <Picky
+          {...corePickyProps}
+          options={options}
+          value={['Dog']}
+          onChange={mockOnChange}
+          multiple={true}
+          filterDebounce={0}
+          open={true}
+          selectAllMode="filtered"
+          includeFilter={true}
+          includeSelectAll={true}
+        />
+      );
+
+      /**
+       *  Lets change the filter input to 'oo', this should leave us with 2 options in the filter
+       *  - Moon
+       *  - Boo
+       */
+      const input = getByTestId('picky__filter__input');
+
+      fireEvent.change(input, { target: { value: 'oo' } });
+
+      // Find the Select All button in the DOM
+      const selectAllButton = getByTestId('selectall');
+      // Click the select all button
+      fireEvent.click(selectAllButton);
+
+      // The value should be "Moon" and "Boo"
+      // Dog was selected before so it should still be returned
+      expect(mockOnChange).toHaveBeenLastCalledWith(['Dog', 'Boo', 'Moon']);
+
+      // Deselect all
+      fireEvent.click(selectAllButton);
+
+      // Should be the original values when we deslect, as we don't want to deselect everything
+      expect(mockOnChange).toHaveBeenLastCalledWith(['Dog']);
+
+      // Remove the filter text from 'oo' to ''
+      fireEvent.change(input, { target: { value: '' } });
+      // Checkbox should be indeterminate
+      const checkbox = getByTestId('selectall-checkbox');
+      expect(checkbox.indeterminate).toEqual(true);
+      // Lets select all again when we have no filter
+      fireEvent.click(selectAllButton);
+
+      // Should return all values since we're no longer filtered and we can see every option
+      expect(mockOnChange).toHaveBeenLastCalledWith([
+        'Boo',
+        'Moon',
+        'Cat',
+        'Dog',
+      ]);
+
+      // Lets deselect all when we're not filtered. This should completely remove all options
+      fireEvent.click(selectAllButton);
+
+      expect(mockOnChange).toHaveBeenLastCalledWith([]);
+    });
+
     it('should call onFilterChange prop when text has changed', () => {
       const onChange = jest.fn();
       const { getByTestId } = render(
