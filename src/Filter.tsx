@@ -5,6 +5,8 @@ export type FilterProps = {
   onResetFilterAndSelected(): void;
   tabIndex: number | undefined;
   placeholder?: string;
+  resetText?: string;
+  closeButton?: boolean;
 } & React.RefAttributes<HTMLInputElement>;
 
 class Filter extends React.PureComponent<FilterProps> {
@@ -24,6 +26,8 @@ class Filter extends React.PureComponent<FilterProps> {
       onFilterChange,
       onFilterClear,
       onResetFilterAndSelected,
+      resetText,
+      closeButton,
     } = this.props;
     return (
       <div className="picky__header">
@@ -40,18 +44,20 @@ class Filter extends React.PureComponent<FilterProps> {
               onFilterChange(e.target.value);
             }}
           />
-          <button
-            type="button"
-            className="picky__clear"
-            onClick={() => {
-              onFilterClear();
-              if (this.ref.current !== null) {
-                this.ref.current.value = this.EMPTY;
-              }
-            }}
-          >
-            X
-          </button>
+          {closeButton && (
+            <button
+              type="button"
+              className="picky__clear"
+              onClick={() => {
+                onFilterClear();
+                if (this.ref.current !== null) {
+                  this.ref.current.value = this.EMPTY;
+                }
+              }}
+            >
+              X
+            </button>
+          )}
         </div>
         <span
           className="picky__reset"
@@ -62,7 +68,7 @@ class Filter extends React.PureComponent<FilterProps> {
             onResetFilterAndSelected();
           }}
         >
-          reset filters
+          {resetText}
         </span>
       </div>
     );
